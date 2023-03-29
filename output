@@ -1,5 +1,6 @@
 output:
-Variances of sales 2021 and 2022:
-{tea=-20, coffee=20, greentea=-10, orangesoda=-30, lemonade=15}
-Variances Percentages of sales 2021 and 2022:
-{tea=-20.0, coffee=8.0, greentea=-20.0, orangesoda=-16.666666666666664, lemonade=6.8181818181818175}
+Variances of sales 2021:
+5225.0
+Variances of sales 2022:
+6950.0
+Variance Pct: 33.01%
