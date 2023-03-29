@@ -1,5 +1,6 @@
-//Calculate variance and variance percentage given 
+//Calculate variance(just difference between sales) and variance percentage given 
 //sales data for two years 2022 and 2021
+// this is my code
 import java.util.*;
 public class variance {
     public static void main(String args[]){
@@ -23,43 +24,30 @@ public class variance {
         sales2022.add(180);
         sales2022.add(220);
 
-         int sum21=0,sum22=0;
-        int mean21=0,mean22=0;
-        int sumsqr21=0,sumsqr22=0;
-        //Calculate mean of sales
-        for(int j=0;j<beverages.size();j++){
-            sum21=sum21+sales2021.get(j);
-            sum22=sum22+sales2022.get(j);
-        }
-        mean21=sum21/beverages.size();
-        mean22=sum22/beverages.size();
-
-        //To calculate sumofsquares
-       
+        Map<String,Integer> variance=new LinkedHashMap<>();
+        Map<String,Double> variancepct=new LinkedHashMap<>();
         for(int i=0;i<beverages.size();i++){
-            
-           int diff21=sales2021.get(i)-mean21;
-            sumsqr21+=(diff21*diff21);
-          
-          int diff22=sales2022.get(i)-mean22;
-             sumsqr22+=(diff22*diff22);
+           
+           int var=sales2022.get(i)-sales2021.get(i);
+           variance.put(beverages.get(i),var);
+
+           double varpct=((double)var/sales2022.get(i))*100;
+           variancepct.put(beverages.get(i),varpct);
         }
+        System.out.println("Variances of sales 2021 and 2022: \n"+variance);
+        System.out.println("Variances Percentages of sales 2021 and 2022: \n"+variancepct);
 
-        //To calculate variance
 
-        double var21=sumsqr21/(beverages.size()-1);
-        double var22=sumsqr22/(beverages.size()-1);
-        //To caluculate variance percentage
 
-        double variancepct = (var22 - var21) / var21 * 100.0;
-       
 
-        System.out.println("Variances of sales 2021: \n"+var21);
-        System.out.println("Variances of sales 2022: \n"+var22);
-        System.out.printf("Variance Pct: %.2f%%\n", variancepct);
+        
     }
     
 }
+
+
+
+
 
 
 
